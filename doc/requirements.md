@@ -1,0 +1,46 @@
+- Deberá tener cartas: cada una con una pregunta y una respuesta, ambas en formato de texto.
+- Deberá tener mazos: con N cartas dentro.
+- Deberá poderse añadir nueva carta a un mazo.
+- Deberá poderse borrar carta a un mazo.
+- Deberá poderse borrar carta a un mazo.
+- Deberá poderse modificar una carta de un mazo.
+- Deberá poderse eliminar mazos.
+- Deberá poderse modificar el nombre de un mazo.
+- Deberá interactuar con el usuario: el usuario deberá introducir un valor de calidad a la respuesta.
+- Deberá tener un algoritmo que sugiera la próxima carta que mostrar al usuario en función de la calidad.
+- Deberá permitir al usuario jugar cuando quiera incluso si todas las cartas son para dentro de X días (no para hoy).
+- Poder exportar cartas de un `.csv`.
+- Poder importar cartas de un `.csv`.
+- Crear mazos con nombre y descripción.
+- Editar el nombre y la descripción de un mazo.
+- Practicar mazos de manera independiente.
+- Practicar mazos de manera conjunta.
+- El proceso de respuesta de una carta funciona de la siguiente manera:
+  - Se muestra el término de la carta.
+  - El usuario pulsa un botón para mostrar la respuesta después de pensarla.
+  - El usuario pulsa uno de los 4 botones según la dificultad que ha tenido para responder a la carta. En cada botón aparece el tiempo en el que se le preguntará de nuevo la carta.
+- Los tiempos en los que se preguntará una carta de nuevo son:
+  - menos de 1 minuto.
+  - menos de 5 minutos.
+  - menos de 10 minutos.
+  - menos de 15 minutos.
+  - en un día.
+  - en 2 días.
+  - en 3 días.
+  - ... ver los tiempos de Anki.
+- Mientras el usuario estudia un mazo, podrá ver los datos de las cartas según las que le quedan por estudiar ese día, las que ha fallado y las que se sabe.
+- El usuario podrá elegir el número de cartas mínimo que tiene que repasar por mazo al día.
+
+## Future features
+
+- Para evitar cartas con preguntas repetidas, es recomendable que en el momento de añadir una nueva carta, se autocomplete la palabra para que el usuario sepa si esa carta ya está en el mazo.
+- Para evitar mazos con títulos repetidas, es recomendable que en el momento de añadir un nuevo mazo, se autocomplete la palabra para que el usuario sepa si ese título ya existe.\_
+- Deberá poderse buscar cartas dentro de un mazo o en todos los mazos, mostrando a qué mazo pertenece.
+- Deberá poderse buscar mazos por nombre.
+- Deberá poderse mover una carta de un mazo a otro.
+- Deberá poderse copiar una carta de un mazo a otro.
+- Deberá tener una interfaz gráfica intuitiva y simple: ¿orientado a carpetas y que se puedan arrastrar cartas de un sitio a otro?
+- Ver métricas de rendimiento:
+  - Cuáles son el Top X de preguntas que peor se le dan
+  - Cuánto tarda el usuario en responder una pregunta (histograma) para ver cuáles son las preguntas que más le han hecho pensar.
+- ¿Poder insertar imágenes/audio en las cartas para practicar pronunciación?
