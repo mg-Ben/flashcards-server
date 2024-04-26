@@ -13,6 +13,12 @@
   "author": "Aitor Melero",
   "license": "MIT",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "7.7.1",
+    "eslint": "8.57.0",
+    "eslint-config-love": "47.0.0",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-n": "15.7.0",
+    "eslint-plugin-promise": "6.1.1",
     "prettier": "3.2.5",
     "rimraf": "5.0.5",
     "tsx": "4.7.3",
