@@ -1,6 +1,7 @@
-# flashcards-server
-
-Flashcards Server
+<h1>
+  flashcards-server
+  <img alt="Node.js version" src="https://img.shields.io/badge/node.js-V20.12.1-green" />
+</h1>
 
 > Note: This README.md is just a simple version for the beginning of the project.
 
