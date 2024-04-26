@@ -13,6 +13,7 @@
   "author": "Aitor Melero",
   "license": "MIT",
   "devDependencies": {
+    "prettier": "3.2.5",
     "rimraf": "5.0.5",
     "tsx": "4.7.3",
     "typescript": "5.4.5"
