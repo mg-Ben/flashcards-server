@@ -15,6 +15,7 @@ The repository has two branches: `main` and `develop`.
 
 - `main`: The production code branch.
 - `develop`: The develop code branch.
+- `feature/name_feature`: The feature develop code branch.
 
 > Only [AitorMelero](https://github.com/AitorMelero) can use the `main` branch.
 
