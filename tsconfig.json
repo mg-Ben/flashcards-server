@@ -5,7 +5,9 @@
     "outDir": "dist",
     "rootDir": "src",
     "sourceMap": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
