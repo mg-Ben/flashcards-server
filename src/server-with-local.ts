@@ -1,7 +1,13 @@
-import { createApp } from './app.js'
+import { createApp } from './app'
 
-import { DeckModel } from './models/local/Deck.js'
+import { DeckModel } from './models/local/Deck'
 
 const deckModel = new DeckModel()
 
-createApp({ deckModel })
+export const app = createApp({ deckModel })
+
+const PORT = process.env.PORT ?? 3000
+
+export const server = app.listen(PORT, () => {
+  console.log(`server listening on port http://localhost:${PORT}`)
+})

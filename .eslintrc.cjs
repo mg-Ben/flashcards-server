@@ -3,6 +3,9 @@ module.exports = {
     {
       files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
       extends: 'love',
+      env: {
+        jest: true,
+      },
     },
   ],
   parserOptions: {

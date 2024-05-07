@@ -1,2 +1,2 @@
 ### GET test
-GET http://localhost:1234/decks
+GET http://localhost:3000/decks
