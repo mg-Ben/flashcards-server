@@ -8,7 +8,7 @@ export class DeckController {
   }
 
   async get (req, res): Promise<void> {
-    const message = await this.deckModel.get()
+    const message = await this.deckModel.getAll()
     res.status(200).json({ message })
   }
 }
