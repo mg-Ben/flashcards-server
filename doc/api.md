@@ -18,8 +18,8 @@ Get a deck by id (uuid). Returns the deck as JSON or 404 if not found.
 
 | Name | Description | Type | Status code |
 |:----:|:-----------:|:----:|:-----------:|
-| Deck | *The deck as JSON* | JSON | 200 |
-| Error message | *Deck not found* | JSON | 404 |
+| deck | *The deck as JSON* | JSON | 200 |
+| error_message | *Deck not found* | JSON | 404 |
 
 The returning JSON object would represent the deck with these fields:
 
@@ -42,7 +42,7 @@ Get all decks. Returns the decks as JSON array.
 
 | Name | Description | Type | Status code |
 |:----:|:-----------:|:----:|:-----------:|
-| Decks | *The decks as JSON array* | JSON array | 200 |
+| decks | *The decks as JSON array* | JSON array | 200 |
 
 Each returning JSON object would represent the deck with these fields:
 
@@ -74,9 +74,9 @@ Send Deck object as JSON body with these fields:
 
 | Name | Description | Type | Status code |
 |:----:|:-----------:|:----:|:-----------:|
-| Created Deck | *The recent added deck* | JSON | 201 |
-| Error message | *Deck has not been created* | JSON | 422 |
-| Error message | *Informative validation error* | JSON | 400 |
+| created_deck | *The recent added deck* | JSON | 201 |
+| error_message | *Deck has not been created* | JSON | 422 |
+| error_message | *Informative validation error* | JSON | 400 |
 
 The returning JSON object would represent the deck with these fields:
 
@@ -115,9 +115,9 @@ Send Deck object as JSON body with these fields:
 
 | Name | Description | Type | Status code |
 |:----:|:-----------:|:----:|:-----------:|
-| Edited Deck | *The recently edited deck* | JSON | 200 |
-| Error message | *Deck not found* | JSON | 404 |
-| Error message | *Informative validation error* | JSON | 400 |
+| edited_deck | *The recently edited deck* | JSON | 200 |
+| error_message | *Deck not found* | JSON | 404 |
+| error_message | *Informative validation error* | JSON | 400 |
 
 The returning JSON object would represent the deck with these fields:
 
@@ -146,8 +146,8 @@ Delete a deck (and consequently the inner cards) by id (uuid). Returns a JSON st
 
 | Name | Description | Type | Status code |
 |:----:|:-----------:|:----:|:-----------:|
-| Sucessful message | *Deck deleted* | JSON | 200 |
-| Error message | *Deck not found* | JSON | 400 |
+| sucessful_message | *Deck deleted* | JSON | 200 |
+| error_message | *Deck not found* | JSON | 400 |
 
 
 
@@ -176,8 +176,8 @@ Get a card by id (uuid). Returns the card as JSON or 404 if not found.
 
 | Name | Description | Type | Status code |
 |:----:|:-----------:|:----:|:-----------:|
-| Card | *The card as JSON* | JSON | 200 |
-| Error message | *Card not found* | JSON | 404 |
+| card | *The card as JSON* | JSON | 200 |
+| error_message | *Card not found* | JSON | 404 |
 
 The returning JSON object would represent the card with these fields:
 
@@ -201,7 +201,7 @@ Get all cards (of all decks). Returns the cards as JSON array.
 
 | Name | Description | Type | Status code |
 |:----:|:-----------:|:----:|:-----------:|
-| Cards | *The cards as JSON array* | JSON array | 200 |
+| cards | *The cards as JSON array* | JSON array | 200 |
 
 The returning JSON object would represent the card with these fields:
 
@@ -234,7 +234,7 @@ Get all cards inside a deck by deck id (uuid). Returns the cards as JSON array. 
 
 | Name | Description | Type | Status code |
 |:----:|:-----------:|:----:|:-----------:|
-| Cards | *The cards as JSON array* | JSON array | 200 |
+| cards | *The cards as JSON array* | JSON array | 200 |
 
 The returning JSON object would represent the card with these fields:
 
@@ -270,9 +270,9 @@ Send Card object as JSON body with these fields:
 
 | Name | Description | Type | Status code |
 |:----:|:-----------:|:----:|:-----------:|
-| Created Card | *The recently added card* | JSON | 201 |
-| Error message | *Card has not been created* | JSON | 422 |
-| Error message | *Informative validation error* | JSON | 400 |
+| created_card | *The recently added card* | JSON | 201 |
+| error_message | *Card has not been created* | JSON | 422 |
+| error_message | *Informative validation error* | JSON | 400 |
 
 The returning JSON object would represent the card with these fields:
 
@@ -318,9 +318,9 @@ The JSON object must have this content:
 
 | Name | Description | Type | Status code |
 |:----:|:-----------:|:----:|:-----------:|
-| Edited Card | *The recently edited card* | JSON | 200 |
-| Error message | *Card not found* | JSON | 404 |
-| Error message | *Informative validation error* | JSON | 400 |
+| edited_card | *The recently edited card* | JSON | 200 |
+| error_message | *Card not found* | JSON | 404 |
+| error_message | *Informative validation error* | JSON | 400 |
 
 The returning JSON object would represent the card with these fields:
 
@@ -353,8 +353,8 @@ Delete a card by id (uuid). Returns a JSON status message with 404 if not found 
 
 | Name | Description | Type | Status code |
 |:----:|:-----------:|:----:|:-----------:|
-| Sucessful message | *Card deleted* | JSON | 200 |
-| Error message | *Card not found* | JSON | 400 |
+| sucessful_message | *Card deleted* | JSON | 200 |
+| error_message | *Card not found* | JSON | 400 |
 
 ---
 ---
