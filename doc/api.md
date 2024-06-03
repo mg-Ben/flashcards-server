@@ -6,13 +6,13 @@
 
 #### Description
 
-Get a deck by id. Returns the deck as JSON or 404 if not found.
+Get a deck by id (uuid). Returns the deck as JSON or 404 if not found.
 
 #### Input: Dynamic parameters
 
 | Name | Description | Type |
 |:----:|:-----------:|:----:|
-| id | *The identifier of the deck* | UUID |
+| uuid | *The identifier of the deck* | UUID |
 
 #### Output: Body
 
@@ -25,7 +25,7 @@ The returning JSON object would represent the deck with these fields:
 
 | Name | Description | Type |
 |:----:|:-----------:|:----:|
-| id | *The identifier of the deck* | UUID |
+| uuid | *The identifier of the deck* | UUID |
 | name | *The deck name* | String |
 | description | *The deck description* | String |
 
@@ -48,7 +48,7 @@ Each returning JSON object would represent the deck with these fields:
 
 | Name | Description | Type |
 |:----:|:-----------:|:----:|
-| id | *The identifier of the deck* | UUID |
+| uuid | *The identifier of the deck* | UUID |
 | name | *The deck name* | String |
 | description | *The deck description* | String |
 
@@ -78,6 +78,14 @@ Send Deck object as JSON body with these fields:
 | Error message | *Deck has not been created* | JSON | 422 |
 | Error message | *Informative validation error* | JSON | 400 |
 
+The returning JSON object would represent the deck with these fields:
+
+| Name | Description | Type |
+|:----:|:-----------:|:----:|
+| uuid | *The identifier of the deck* | UUID |
+| name | *The deck name* | String |
+| description | *The deck description* | String |
+
 ---
 ---
 
@@ -85,13 +93,13 @@ Send Deck object as JSON body with these fields:
 
 #### Description
 
-Modify partially an existing deck by id from body request data. Returns the edited deck, 404 if not found or 400 in case there are errors in input body request parameters validation.
+Modify partially an existing deck by id (uuid) from body request data. Returns the edited deck, 404 if not found or 400 in case there are errors in input body request parameters validation.
 
 #### Input: Dynamic parameters
 
 | Name | Description | Type |
 |:----:|:-----------:|:----:|
-| id | *The identifier of the deck* | UUID |
+| uuid | *The identifier of the deck* | UUID |
 
 #### Input: Body
 
@@ -99,6 +107,7 @@ Send Deck object as JSON body with these fields:
 
 | Name | Description | Type |
 |:----:|:-----------:|:----:|
+| uuid | *The identifier of the deck* | UUID |
 | name | *The new deck name* | String |
 | description | *The new deck description* | String |
 
@@ -110,6 +119,14 @@ Send Deck object as JSON body with these fields:
 | Error message | *Deck not found* | JSON | 404 |
 | Error message | *Informative validation error* | JSON | 400 |
 
+The returning JSON object would represent the deck with these fields:
+
+| Name | Description | Type |
+|:----:|:-----------:|:----:|
+| uuid | *The identifier of the deck* | UUID |
+| name | *The deck name* | String |
+| description | *The deck description* | String |
+
 ---
 ---
 
@@ -117,13 +134,13 @@ Send Deck object as JSON body with these fields:
 
 #### Description
 
-Delete a deck (and consequently the inner cards). Returns a JSON status message with 404 if not found or 400 in case there are errors in input body request parameters validation.
+Delete a deck (and consequently the inner cards) by id (uuid). Returns a JSON status message with 404 if not found or 400 in case there are errors in input body request parameters validation.
 
 #### Input: Dynamic parameters
 
 | Name | Description | Type |
 |:----:|:-----------:|:----:|
-| id | *The identifier of the deck* | UUID |
+| uuid | *The identifier of the deck* | UUID |
 
 #### Output: Body
 
@@ -147,13 +164,13 @@ Delete a deck (and consequently the inner cards). Returns a JSON status message 
 
 #### Description
 
-Get a card by id. Returns the card as JSON or 404 if not found.
+Get a card by id (uuid). Returns the card as JSON or 404 if not found.
 
 #### Input: Dynamic parameters
 
 | Name | Description | Type |
 |:----:|:-----------:|:----:|
-| id | *The identifier of the card* | UUID |
+| uuid | *The identifier of the card* | UUID |
 
 #### Output: Body
 
@@ -166,13 +183,13 @@ The returning JSON object would represent the card with these fields:
 
 | Name | Description | Type |
 |:----:|:-----------:|:----:|
-| id | *The identifier of the card* | UUID |
+| uuid | *The identifier of the card* | UUID |
 | question | *The card question* | String |
 | answer | *The card answer* | String |
 | repetitions | *The card repetitions* | Integer |
 | easiness | *The card easiness factor* | Double |
-| interval | *The card interval* | Integer |
-| date to repeat | *The card timestamp to be reviewed* | Timestamp |
+| interval_days | *The card interval* | Integer |
+| date_to_repeat | *The card timestamp to be reviewed* | Timestamp |
 
 ### [![](https://img.shields.io/badge/GET-/cards-grey?labelColor=03A972&style=flat-square)]()
 
@@ -186,17 +203,17 @@ Get all cards (of all decks). Returns the cards as JSON array.
 |:----:|:-----------:|:----:|:-----------:|
 | Cards | *The cards as JSON array* | JSON array | 200 |
 
-Each returning JSON object would represent the card with these fields:
+The returning JSON object would represent the card with these fields:
 
 | Name | Description | Type |
 |:----:|:-----------:|:----:|
-| id | *The identifier of the card* | UUID |
+| uuid | *The identifier of the card* | UUID |
 | question | *The card question* | String |
 | answer | *The card answer* | String |
 | repetitions | *The card repetitions* | Integer |
 | easiness | *The card easiness factor* | Double |
-| interval | *The card interval* | Integer |
-| date to repeat | *The card timestamp to be reviewed* | Timestamp |
+| interval_days | *The card interval* | Integer |
+| date_to_repeat | *The card timestamp to be reviewed* | Timestamp |
 
 ---
 ---
@@ -205,13 +222,13 @@ Each returning JSON object would represent the card with these fields:
 
 #### Description
 
-Get all cards inside a deck by deck id. Returns the cards as JSON array. If `idDeck` dynamic parameter is undefined, It will return all cards of all decks.
+Get all cards inside a deck by deck id (uuid). Returns the cards as JSON array. If `deckId` dynamic parameter is undefined, It will return all cards of all decks.
 
 #### Input: Query string
 
 | Name | Description | Type |
 |:----:|:-----------:|:----:|
-| deckId | *The deck id* | UUID |
+| uuid | *The identifier of the deck* | UUID |
 
 #### Output: Body
 
@@ -219,17 +236,17 @@ Get all cards inside a deck by deck id. Returns the cards as JSON array. If `idD
 |:----:|:-----------:|:----:|:-----------:|
 | Cards | *The cards as JSON array* | JSON array | 200 |
 
-Each returning JSON object would represent the card with these fields:
+The returning JSON object would represent the card with these fields:
 
 | Name | Description | Type |
 |:----:|:-----------:|:----:|
-| id | *The identifier of the card* | UUID |
+| uuid | *The identifier of the card* | UUID |
 | question | *The card question* | String |
 | answer | *The card answer* | String |
 | repetitions | *The card repetitions* | Integer |
 | easiness | *The card easiness factor* | Double |
-| interval | *The card interval* | Integer |
-| date to repeat | *The card timestamp to be reviewed* | Timestamp |
+| interval_days | *The card interval* | Integer |
+| date_to_repeat | *The card timestamp to be reviewed* | Timestamp |
 
 ---
 ---
@@ -238,13 +255,11 @@ Each returning JSON object would represent the card with these fields:
 
 #### Description
 
-Create a new non-existing card inside an existing deck by deck id.
+Create a new non-existing card inside an existing deck by deck id (uuid).
 
 #### Input: Body JSON
 
 Send Card object as JSON body with these fields:
-
-Each returning JSON object would represent the card with these fields:
 
 | Name | Description | Type |
 |:----:|:-----------:|:----:|
@@ -259,6 +274,18 @@ Each returning JSON object would represent the card with these fields:
 | Error message | *Card has not been created* | JSON | 422 |
 | Error message | *Informative validation error* | JSON | 400 |
 
+The returning JSON object would represent the card with these fields:
+
+| Name | Description | Type |
+|:----:|:-----------:|:----:|
+| uuid | *The identifier of the card* | UUID |
+| question | *The card question* | String |
+| answer | *The card answer* | String |
+| repetitions | *The card repetitions* | Integer |
+| easiness | *The card easiness factor* | Double |
+| interval_days | *The card interval* | Integer |
+| date_to_repeat | *The card timestamp to be reviewed* | Timestamp |
+
 ---
 ---
 
@@ -266,33 +293,26 @@ Each returning JSON object would represent the card with these fields:
 
 #### Description
 
-Modify partially an existing card by id from body request data. Returns the edited card, 404 if not found or 400 in case there are errors in input body request parameters validation.
+Modify partially an existing card by id (uuid) from body request data. Returns the edited card, 404 if not found or 400 in case there are errors in input body request parameters validation.
 
 #### Input: Dynamic parameters
 
 | Name | Description | Type |
 |:----:|:-----------:|:----:|
-| id | *The identifier of the card* | UUID |
+| uuid | *The identifier of the card* | UUID |
 
 #### Input: Body
 
-This `PATCH` method is used whenever either the user wants to modify the question and/or the answer of a card or the user has played the card.
-- In the first case, this `PATCH` method must **only** edit the question and/or answer, and not the metadata (repetitions, easiness, interval and date to repeat), whose values must be kept as before the modification. Therefore, the JSON object would have this content:
+The JSON object must have this content:
 
-  | Name | Description | Type |
-  |:----:|:-----------:|:----:|
-  | question | *The card question* | String |
-  | answer | *The card answer* | String |
-
-
-- In the second case, this `PATCH` method must **only** edit the metadata (repetitions, easiness, interval and date to repeat), and not the question or answer. Therefore, the JSON object would have this content:
-
-  | Name | Description | Type |
-  |:----:|:-----------:|:----:|
-  | repetitions | *The card repetitions* | Integer |
-  | easiness | *The card easiness factor* | Double |
-  | interval | *The card interval* | Integer |
-  | date to repeat | *The card timestamp to be reviewed* | Timestamp |
+| Name | Description | Type |
+|:----:|:-----------:|:----:|
+| question | *The card question* | String |
+| answer | *The card answer* | String |
+| repetitions | *The card repetitions* | Integer |
+| easiness | *The card easiness factor* | Double |
+| interval_days | *The card interval* | Integer |
+| date_to_repeat | *The card timestamp to be reviewed* | Timestamp |
 
 #### Output: Body
 
@@ -302,6 +322,18 @@ This `PATCH` method is used whenever either the user wants to modify the questio
 | Error message | *Card not found* | JSON | 404 |
 | Error message | *Informative validation error* | JSON | 400 |
 
+The returning JSON object would represent the card with these fields:
+
+| Name | Description | Type |
+|:----:|:-----------:|:----:|
+| uuid | *The identifier of the card* | UUID |
+| question | *The card question* | String |
+| answer | *The card answer* | String |
+| repetitions | *The card repetitions* | Integer |
+| easiness | *The card easiness factor* | Double |
+| interval_days | *The card interval* | Integer |
+| date_to_repeat | *The card timestamp to be reviewed* | Timestamp |
+
 ---
 ---
 
@@ -309,13 +341,13 @@ This `PATCH` method is used whenever either the user wants to modify the questio
 
 #### Description
 
-Delete a card. Returns a JSON status message with 404 if not found or 400 in case there are errors in input body request parameters validation.
+Delete a card by id (uuid). Returns a JSON status message with 404 if not found or 400 in case there are errors in input body request parameters validation.
 
 #### Input: Query string
 
 | Name | Description | Type |
 |:----:|:-----------:|:----:|
-| id | *The card id* | UUID |
+| uuid | *The card id* | UUID |
 
 #### Output: Body
 
