@@ -8,9 +8,7 @@ export const createDeckRouter = ({ deckModel }: { deckModel: DeckModelType }): R
   const deckController = new DeckController({ deckModel })
 
   deckRouter.get('/', (req, res) => {
-    deckController.get(req, res).catch((error) => {
-      console.log(error)
-    })
+    return deckController.getAll(req, res)
   })
 
   return deckRouter

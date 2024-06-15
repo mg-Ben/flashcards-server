@@ -1,5 +1,5 @@
 ### GET test
-GET http://localhost:3000/decks
+GET http://localhost:8081/
 
 ### GET decks test
-GET http://localhost:3000/decks
+GET http://localhost:8081/decks

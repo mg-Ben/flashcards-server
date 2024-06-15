@@ -7,8 +7,8 @@ export class DeckController {
     this.deckModel = deckModel
   }
 
-  async get (req, res): Promise<void> {
-    const message = await this.deckModel.getAll()
-    res.status(200).json({ message })
+  async getAll (req, res): Promise<void> {
+    const result = await this.deckModel.getAll()
+    res.status(200).json(result)
   }
 }

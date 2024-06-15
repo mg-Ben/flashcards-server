@@ -1,13 +1,9 @@
-import { afterAll, describe, expect, it } from '@jest/globals'
-import request from 'supertest'
-import { app, server } from '../src/server-with-local'
+import { describe, expect, it } from '@jest/globals'
+import { DeckModel } from '../../../src/models/mysql/Deck'
+const deckModel = new DeckModel()
 
-afterAll(() => {
-  server.close()
-})
-
-describe('deck module', () => {
-  it('GET /decks is working', async () => {
+describe('deck model module', () => {
+  it('getAll decks is working', async () => {
     const RESPONSE = [
       {
         uuid: '89c09a27-2194-11ef-8aa6-6c240852178d',
@@ -25,9 +21,7 @@ describe('deck module', () => {
         description: 'Now it is not a mysterious deck',
       },
     ]
-    const response = await request(app).get('/decks')
-
-    expect(response.statusCode).toBe(200)
-    expect(response.body).toStrictEqual(RESPONSE)
+    const response = await deckModel.getAll()
+    expect(response).toBe(RESPONSE)
   })
 })
