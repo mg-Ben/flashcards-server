@@ -4,7 +4,11 @@ const ACCEPTED_ORIGINS = ['http://localhost:8080', 'http://localhost:1234', 'htt
 
 type CorsType = (
   req: CorsRequest,
-  res: { statusCode?: number | undefined, setHeader: (key: string, value: string) => any, end: () => any },
+  res: {
+    statusCode?: number | undefined
+    setHeader: (key: string, value: string) => any
+    end: () => any
+  },
   next: (err?: any) => any,
 ) => void
 
@@ -12,14 +16,16 @@ export const corsMiddleware = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}): Cor
   cors({
     origin: (origin, callback) => {
       if (typeof origin === 'string' && acceptedOrigins.includes(origin)) {
-        return callback(null, true)
+        callback(null, true)
+        return
       }
 
       // TODO: Delete
       if (origin === undefined) {
-        return callback(null, true)
+        callback(null, true)
+        return
       }
 
-      return callback(new Error('Not allowed by CORS'))
+      callback(new Error('Not allowed by CORS'))
     }
   })
