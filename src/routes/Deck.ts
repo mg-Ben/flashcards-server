@@ -8,8 +8,8 @@ export const createDeckRouter = ({ deckModel }: { deckModel: DeckModelType }): R
   const deckController = new DeckController({ deckModel })
 
   deckRouter.get('/', (req, res) => {
-    deckController.get(req, res).catch((error) => {
-      console.log(error)
+    deckController.getAll(res).catch((error) => {
+      res.status(500).json({ message: error })
     })
   })
 

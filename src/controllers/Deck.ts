@@ -1,3 +1,4 @@
+import { type Response } from 'express'
 import { type DeckModelType } from '../types/Deck'
 
 export class DeckController {
@@ -7,8 +8,8 @@ export class DeckController {
     this.deckModel = deckModel
   }
 
-  async get (req, res): Promise<void> {
-    const message = await this.deckModel.get()
-    res.status(200).json({ message })
+  async getAll (res: Response): Promise<void> {
+    const result = await this.deckModel.getAll()
+    res.status(200).json(result)
   }
 }
