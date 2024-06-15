@@ -7,7 +7,10 @@
   "scripts": {
     "dev:local": "tsx --watch --env-file=.env ./src/server-with-local.ts",
     "start": "jest && tsx --watch --env-file=.env ./src/server-with-local.ts",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "prettier": "npx prettier . --write",
+    "lint": "eslint --fix . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "format": "npm run prettier && npm run lint"
   },
   "keywords": [],
   "author": "Aitor Melero",
