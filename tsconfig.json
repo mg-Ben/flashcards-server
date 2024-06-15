@@ -8,7 +8,18 @@
     "strictNullChecks": true,
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+
+    // Url Imports
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@/controllers": ["src/controllers/*"],
+      "@/middlewares": ["src/middlewares/*"],
+      "@/models": ["src/models/*"],
+      "@/routes": ["src/routes/*"],
+      "@/types": ["src/types/*"]
+    }
   },
   "include": ["src/**/*.ts", "tests/**/*.ts"],
   "exclude": ["node_modules"]
