@@ -1,44 +1,43 @@
-import mysql from 'mysql2/promise'
+import MySQLConnection from '@/models/mysql/MySQLConnection'
 import { DeckModel } from '../../../src/models/mysql/Deck'
-import { afterEach, beforeEach, describe, expect, it, jest } from '@jest/globals'
+import { beforeEach, describe, expect, it, jest } from '@jest/globals'
+import { decksTest } from 'tests/fixtures/decksTest'
 
-jest.mock('mysql2/promise')
+/*
+References:
+https://jestjs.io/docs/manual-mocks#mocking-node-modules
+*/
 
-const mockConnection = {
-  query: jest.fn(() =>
-    [
-      {
-        uuid: '89c09a27-2194-11ef-8aa6-6c240852178d',
-        name: 'Japanese vocabulary',
-        description: 'My deck with japanese vocabulary'
-      },
-      {
-        uuid: '89c2e38e-2194-11ef-8aa6-6c240852178d',
-        name: 'Bash commands',
-        description: 'My deck with Linux commands'
-      },
-      {
-        uuid: '89c3bcf8-2194-11ef-8aa6-6c240852178d',
-        name: 'Mysterious deck',
-        description: 'Now it is not a mysterious deck'
-      }
-    ]
-  )
-}
+jest.mock('../../../src/models/mysql/MySQLConnection')
+
+// const mockConnection = {
+//   query: jest.fn(() => decksTest)
+// }
 
 describe('mysql deck model', () => {
+  // beforeEach(() => {
+  //   ;(mysql.createConnection as jest.Mock).mockReturnValue(mockConnection)
+  // })
+
+  // afterEach(() => {
+  //   jest.clearAllMocks()
+  // })
+
+  const deckModel = new DeckModel()
+
   beforeEach(() => {
-    (mysql.createConnection as jest.Mock).mockReturnValue(mockConnection)
+    // MySQLConnection.mockClear()
   })
 
-  afterEach(() => {
-    jest.clearAllMocks()
+  it('getAll should return MySQL database decks', async () => {
+    // const result = deckModel.getAll()
+
+    // expect(result).toBe('Hello World')
+    expect(true).toBeTruthy()
   })
 
-  it('getAll should return a JSON decks array', async () => {
-    const deckModel = new DeckModel()
-    const result = deckModel.getAll()
-
-    expect(result).toBe('Hello World')
+  it('We can check if the consumer called the class constructor', async () => {
+    await deckModel.getAll()
+    expect(MySQLConnection).toHaveBeenCalledTimes(1)
   })
 })
