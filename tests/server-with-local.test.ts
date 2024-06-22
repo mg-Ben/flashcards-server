@@ -16,8 +16,6 @@ describe('deck module', () => {
   it('should Get /decks return all decks', async () => {
     const response = await request(app).get('/decks')
 
-    console.log('hello world')
-
     expect(response.statusCode).toBe(200)
     expect(response.body).toStrictEqual(decksTest)
   })
