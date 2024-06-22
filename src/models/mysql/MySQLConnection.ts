@@ -46,9 +46,7 @@ export default class MySQLConnection {
     return await mysql.createConnection(this.#uri)
   }
 
-  async runQuery (
-    query: string
-  ): Promise<RowDataPacket[]> {
+  async runQuery (query: string): Promise<RowDataPacket[]> {
     const connection = await this.getConnection()
     const [queryResult] = await connection.query<RowDataPacket[]>(query)
     return queryResult
