@@ -1,4 +1,4 @@
-import { type DeckModelType, type Deck } from '../../types/Deck'
+import { type DeckModelType, type Deck } from '@/types/Deck'
 
 export class DeckModel implements DeckModelType {
   async get (): Promise<string> {

@@ -1,5 +1,5 @@
 import { type Response } from 'express'
-import { type DeckModelType } from '../types/Deck'
+import { type DeckModelType } from '@/types/Deck'
 
 export class DeckController {
   deckModel: DeckModelType

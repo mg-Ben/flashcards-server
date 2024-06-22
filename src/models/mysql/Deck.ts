@@ -1,4 +1,4 @@
-import { type DeckModelType, type Deck } from '../../types/Deck'
+import { type DeckModelType, type Deck } from '@/types/Deck'
 import MySQLConnection from './MySQLConnection'
 
 export class DeckModel implements DeckModelType {
