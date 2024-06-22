@@ -33,4 +33,8 @@ export class DeckModel implements DeckModelType {
 
     return result
   }
+
+  async closeConnection (): Promise<void> {
+    await this.#mysqlConnection.closeConnection()
+  }
 }

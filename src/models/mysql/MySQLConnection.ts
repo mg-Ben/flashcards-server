@@ -53,4 +53,9 @@ export default class MySQLConnection {
     const [queryResult] = await connection.query<RowDataPacket[]>(query)
     return queryResult
   }
+
+  async closeConnection (): Promise<void> {
+    const connection = await this.getConnection()
+    await connection.end()
+  }
 }
