@@ -25,9 +25,6 @@ export class DeckModel implements DeckModelType {
         description: row.description
       }
 
-      // TODO validate data
-      // validateDataDeck(deckObject)
-
       result.push(deckObject)
     })
 
